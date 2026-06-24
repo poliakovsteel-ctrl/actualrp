@@ -962,23 +962,13 @@ footer {
       <div class="panel-title">Articles populaires</div>
       <div class="shop-item" onclick="showPage('boutique')">
         <div class="shop-rank">🥇</div>
-        <div><div class="shop-name">PREMIUM+ (3 MOIS)</div><div class="shop-meta">0 vente</div></div>
-        <div class="shop-price">32,00 €</div>
+        <div><div class="shop-name">GRADE PREMIUM</div><div class="shop-meta">0 vente</div></div>
+        <div class="shop-price">À définir</div>
       </div>
       <div class="shop-item" onclick="showPage('boutique')">
         <div class="shop-rank">🥈</div>
-        <div><div class="shop-name">PREMIUM (1 MOIS)</div><div class="shop-meta">0 vente</div></div>
-        <div class="shop-price">7,50 €</div>
-      </div>
-      <div class="shop-item" onclick="showPage('boutique')">
-        <div class="shop-rank">🥉</div>
-        <div><div class="shop-name">PREMIUM (3 MOIS)</div><div class="shop-meta">0 vente</div></div>
-        <div class="shop-price">19,50 €</div>
-      </div>
-      <div class="shop-item" onclick="showPage('boutique')">
-        <div class="shop-rank" style="font-family:var(--mono);font-size:11px;">#4</div>
-        <div><div class="shop-name">MODEL (PERMANENT)</div><div class="shop-meta">0 vente</div></div>
-        <div class="shop-price">13,00 €</div>
+        <div><div class="shop-name">GRADE VIP</div><div class="shop-meta">0 vente</div></div>
+        <div class="shop-price">À définir</div>
       </div>
       <span class="panel-link" onclick="showPage('boutique')">Voir la boutique →</span>
     </div>
@@ -1045,74 +1035,72 @@ footer {
     <h1>Boutique</h1>
     <p>Accède à des privilèges, items et avantages en jeu. Chaque achat soutient le serveur.</p>
   </div>
+  <style>
+    .shop-card-logo {
+      width: 100px; height: 100px;
+      object-fit: contain; display: block;
+      margin: 0 auto 16px;
+      filter: drop-shadow(0 0 14px rgba(0,0,0,0.6));
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .shop-card:hover .shop-card-logo {
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 20px rgba(214,162,74,0.3));
+    }
+    .shop-card { text-align: center; }
+    .shop-card h3 { text-align: left; }
+    .shop-card-desc { text-align: left; }
+    .shop-card-footer { text-align: left; }
+    /* badge pulse pour POPULAIRE */
+    .shop-card-badge.pulse-badge {
+      animation: badgePulse 2.5s ease-in-out infinite;
+    }
+    @keyframes badgePulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(0,255,136,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(0,255,136,0); }
+    }
+  </style>
+
   <div class="shop-grid">
-    <div class="shop-card">
-      <span class="shop-card-badge">POPULAIRE</span>
-      <div class="shop-card-icon">⭐</div>
-      <h3>PREMIUM+ (3 MOIS)</h3>
-      <p class="shop-card-desc">Accès complet à tous les avantages premium pendant 3 mois. Meilleur rapport qualité/prix.</p>
+
+    <!-- VIP -->
+    <div class="shop-card" style="border-color:rgba(180,120,60,0.5);background:linear-gradient(180deg,rgba(40,25,10,0.8),var(--dark2));">
+      <span class="shop-card-badge" style="background:linear-gradient(135deg,#c8843a,#e8a04a);color:#1a0e05;">VIP</span>
+      <img src="/mnt/user-data/uploads/1782298367408_image.png" alt="VIP" class="shop-card-logo">
+      <h3 style="color:#e8a04a;">GRADE VIP</h3>
+      <p class="shop-card-desc">Accès VIP permanent avec avantages exclusifs en jeu. Statut reconnu dans toute la communauté.</p>
       <div class="shop-card-footer">
         <div>
-          <div class="shop-card-price">32,00 €</div>
+          <div class="shop-card-price" style="color:#e8a04a;">À définir</div>
           <div class="shop-card-sales">0 vente</div>
         </div>
-        <button class="btn-buy" onclick="document.getElementById('steamModal').classList.add('open')">Acheter</button>
+        <button class="btn-buy" style="background:linear-gradient(135deg,#c8843a,#e8a04a);color:#1a0e05;" onclick="document.getElementById('steamModal').classList.add('open')">Acheter</button>
       </div>
     </div>
-    <div class="shop-card">
-      <div class="shop-card-icon">🌟</div>
-      <h3>PREMIUM (1 MOIS)</h3>
-      <p class="shop-card-desc">Accès premium pour un mois. Idéal pour découvrir les avantages.</p>
+
+    <!-- PREMIUM -->
+    <div class="shop-card" style="border-color:rgba(214,162,74,0.5);background:linear-gradient(180deg,rgba(35,28,5,0.9),var(--dark2));">
+      <span class="shop-card-badge pulse-badge" style="background:linear-gradient(135deg,#b8960a,#f0c020);color:#1a1400;">POPULAIRE</span>
+      <img src="/mnt/user-data/uploads/1782298373476_image.png" alt="PREMIUM" class="shop-card-logo">
+      <h3 style="color:#f0c020;">GRADE PREMIUM</h3>
+      <p class="shop-card-desc">Accès Premium avec tous les avantages haut de gamme. Le meilleur rapport pour soutenir le serveur.</p>
       <div class="shop-card-footer">
         <div>
-          <div class="shop-card-price">7,50 €</div>
+          <div class="shop-card-price" style="color:#f0c020;">À définir</div>
           <div class="shop-card-sales">0 vente</div>
         </div>
-        <button class="btn-buy" onclick="document.getElementById('steamModal').classList.add('open')">Acheter</button>
+        <button class="btn-buy" style="background:linear-gradient(135deg,#b8960a,#f0c020);color:#1a1400;" onclick="document.getElementById('steamModal').classList.add('open')">Acheter</button>
       </div>
     </div>
-    <div class="shop-card">
-      <div class="shop-card-icon">💫</div>
-      <h3>PREMIUM (3 MOIS)</h3>
-      <p class="shop-card-desc">Accès premium pour 3 mois à tarif réduit.</p>
-      <div class="shop-card-footer">
-        <div>
-          <div class="shop-card-price">19,50 €</div>
-          <div class="shop-card-sales">0 vente</div>
-        </div>
-        <button class="btn-buy" onclick="document.getElementById('steamModal').classList.add('open')">Acheter</button>
-      </div>
-    </div>
-    <div class="shop-card">
-      <div class="shop-card-icon">🎭</div>
-      <h3>MODEL (PERMANENT)</h3>
-      <p class="shop-card-desc">Accès permanent à des modèles exclusifs en jeu.</p>
-      <div class="shop-card-footer">
-        <div>
-          <div class="shop-card-price">13,00 €</div>
-          <div class="shop-card-sales">0 vente</div>
-        </div>
-        <button class="btn-buy" onclick="document.getElementById('steamModal').classList.add('open')">Acheter</button>
-      </div>
-    </div>
-    <div class="shop-card">
-      <div class="shop-card-icon">🔧</div>
-      <h3>TOOLS (PERMANENT)</h3>
-      <p class="shop-card-desc">Accès permanent à des outils exclusifs en jeu.</p>
-      <div class="shop-card-footer">
-        <div>
-          <div class="shop-card-price">10,00 €</div>
-          <div class="shop-card-sales">0 vente</div>
-        </div>
-        <button class="btn-buy" onclick="document.getElementById('steamModal').classList.add('open')">Acheter</button>
-      </div>
-    </div>
-    <div class="shop-card" style="display:flex;align-items:center;justify-content:center;min-height:180px;border-style:dashed;opacity:0.5;">
+
+    <!-- SLOT FUTUR -->
+    <div class="shop-card" style="display:flex;align-items:center;justify-content:center;min-height:220px;border-style:dashed;opacity:0.4;">
       <div style="text-align:center;">
-        <div style="font-size:28px;margin-bottom:8px;">+</div>
+        <div style="font-size:32px;margin-bottom:10px;opacity:0.5;">+</div>
         <div style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;">Bientôt disponible</div>
       </div>
     </div>
+
   </div>
   <div style="text-align:center;margin-top:32px;padding:20px;background:var(--gb);border:1px solid var(--border);border-radius:var(--radius);">
     <p style="color:var(--muted);font-size:13px;margin-bottom:12px;">Connecte-toi via Steam pour accéder à l'achat sécurisé</p>
@@ -1186,54 +1174,120 @@ footer {
     <h1>Factions</h1>
     <p>Quatre puissances dominent le réseau. Chaque camp possède ses lois, ses méthodes et ses ennemis.</p>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;">
+  <style>
+    .fc {
+      border-radius: var(--radius); overflow: hidden;
+      min-height: 460px; display: flex; flex-direction: column;
+      justify-content: flex-end; position: relative;
+      background-size: cover; background-position: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .fc:hover { transform: translateY(-4px); box-shadow: 0 30px 80px rgba(0,0,0,0.8); }
+    .fc::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.96) 100%);
+    }
+    .fc-body { padding: 26px; position: relative; z-index: 1; }
+    .fc-freq {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-bottom: 12px; padding: 6px 11px; border-radius: 3px;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+      border: 1px solid var(--fc-line);
+      color: var(--fc-color); font-family: var(--mono);
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .fc h3 {
+      font-family: var(--head); font-weight: 700;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      color: #fff; text-transform: uppercase; letter-spacing: 2px;
+      line-height: 0.95; margin-bottom: 6px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+    }
+    .fc-slogan {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--fc-color); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .fc p { color: #b8d4b8; line-height: 1.72; font-size: 14px; margin-bottom: 16px; }
+    .fc-stats {
+      display: grid; gap: 5px;
+      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px;
+    }
+    .fc-stats span { font-size: 13px; color: rgba(180,200,180,0.7); }
+    .fc-stats strong {
+      color: var(--fc-color); font-family: var(--mono);
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+    }
+    /* hover border accent */
+    .fc::after {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      border: 1px solid var(--fc-line); border-radius: inherit;
+      pointer-events: none; opacity: 0; transition: opacity 0.3s;
+    }
+    .fc:hover::after { opacity: 1; }
+  </style>
 
-    <div style="background:var(--dark2);border:1px solid rgba(240,209,138,0.3);border-radius:var(--radius);padding:26px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(240,209,138,0.08),transparent);pointer-events:none;"></div>
-      <div style="font-family:var(--mono);font-size:10px;color:#f0d18a;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;background:rgba(240,209,138,0.08);border:1px solid rgba(240,209,138,0.25);display:inline-block;padding:5px 10px;border-radius:3px;">Fréquence : HANZA-1</div>
-      <h3 style="font-family:var(--head);font-size:26px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Hanza</h3>
-      <p style="font-family:var(--mono);font-size:11px;color:#f0d18a;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">Commerce. Passage. Influence.</p>
-      <p style="font-size:14px;color:var(--muted2);line-height:1.75;margin-bottom:16px;">La Hanza contrôle les routes marchandes, les taxes, les convois et les échanges entre stations. Elle préfère les accords aux guerres, mais protège violemment ses intérêts.</p>
-      <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:14px;display:grid;gap:5px;">
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#f0d18a;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Rôle :</span> économie, transport, négociation</span>
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#f0d18a;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Forces :</span> ressources, réseau, diplomatie</span>
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#f0d18a;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Faiblesse :</span> dépendance au commerce</span>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+
+    <!-- HANZA -->
+    <div class="fc" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.88)),url('hanza.jpg');--fc-color:#f0d18a;--fc-line:rgba(240,209,138,0.45);">
+      <div class="fc-body">
+        <div class="fc-freq">Fréquence : HANZA-1</div>
+        <h3>Hanza</h3>
+        <p class="fc-slogan">Commerce. Passage. Influence.</p>
+        <p>La Hanza contrôle les routes marchandes, les taxes, les convois et les échanges entre stations. Elle préfère les accords aux guerres, mais protège violemment ses intérêts.</p>
+        <div class="fc-stats">
+          <span><strong>Rôle :</strong> économie, transport, négociation</span>
+          <span><strong>Forces :</strong> ressources, réseau, diplomatie</span>
+          <span><strong>Faiblesse :</strong> dépendance au commerce</span>
+        </div>
       </div>
     </div>
 
-    <div style="background:var(--dark2);border:1px solid rgba(200,200,200,0.25);border-radius:var(--radius);padding:26px;position:relative;overflow:hidden;">
-      <div style="font-family:var(--mono);font-size:10px;color:#d8d8d8;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;background:rgba(200,200,200,0.06);border:1px solid rgba(200,200,200,0.2);display:inline-block;padding:5px 10px;border-radius:3px;">Fréquence : REICH-4</div>
-      <h3 style="font-family:var(--head);font-size:26px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Reich</h3>
-      <p style="font-family:var(--mono);font-size:11px;color:#d8d8d8;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">Ordre. Discipline. Purification.</p>
-      <p style="font-size:14px;color:var(--muted2);line-height:1.75;margin-bottom:16px;">Le Reich impose sa vision par la peur, la propagande et la force. Ses soldats verrouillent leurs territoires et traitent toute différence comme une menace à éliminer.</p>
-      <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:14px;display:grid;gap:5px;">
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#d8d8d8;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Rôle :</span> contrôle militaire, répression, conquête</span>
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#d8d8d8;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Forces :</span> discipline, armes, hiérarchie</span>
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#d8d8d8;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Faiblesse :</span> isolement politique</span>
+    <!-- REICH -->
+    <div class="fc" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.88)),url('reich.jpg');--fc-color:#d8d8d8;--fc-line:rgba(220,220,220,0.35);">
+      <div class="fc-body">
+        <div class="fc-freq">Fréquence : REICH-4</div>
+        <h3>Reich</h3>
+        <p class="fc-slogan">Ordre. Discipline. Purification.</p>
+        <p>Le Reich impose sa vision par la peur, la propagande et la force. Ses soldats verrouillent leurs territoires et traitent toute différence comme une menace à éliminer.</p>
+        <div class="fc-stats">
+          <span><strong>Rôle :</strong> contrôle militaire, répression, conquête</span>
+          <span><strong>Forces :</strong> discipline, armes, hiérarchie</span>
+          <span><strong>Faiblesse :</strong> isolement politique</span>
+        </div>
       </div>
     </div>
 
-    <div style="background:var(--dark2);border:1px solid rgba(255,107,107,0.35);border-radius:var(--radius);padding:26px;position:relative;overflow:hidden;">
-      <div style="font-family:var(--mono);font-size:10px;color:#ff6b6b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;background:rgba(255,107,107,0.07);border:1px solid rgba(255,107,107,0.25);display:inline-block;padding:5px 10px;border-radius:3px;">Fréquence : LR-7</div>
-      <h3 style="font-family:var(--head);font-size:26px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Ligne Rouge</h3>
-      <p style="font-family:var(--mono);font-size:11px;color:#ff6b6b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">Peuple. Révolution. Sacrifice.</p>
-      <p style="font-size:14px;color:var(--muted2);line-height:1.75;margin-bottom:16px;">La Ligne Rouge rassemble soldats, ouvriers et civils sous une idéologie collective. Elle avance au nom du peuple, quitte à broyer ceux qui refusent de suivre.</p>
-      <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:14px;display:grid;gap:5px;">
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#ff6b6b;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Rôle :</span> mobilisation, propagande, défense de masse</span>
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#ff6b6b;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Forces :</span> nombre, industrie, endurance</span>
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#ff6b6b;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Faiblesse :</span> rigidité idéologique</span>
+    <!-- LIGNE ROUGE -->
+    <div class="fc" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.88)),url('lignerouge.jpg');--fc-color:#ff6b6b;--fc-line:rgba(255,107,107,0.45);">
+      <div class="fc-body">
+        <div class="fc-freq">Fréquence : LR-7</div>
+        <h3>Ligne Rouge</h3>
+        <p class="fc-slogan">Peuple. Révolution. Sacrifice.</p>
+        <p>La Ligne Rouge rassemble soldats, ouvriers et civils sous une idéologie collective. Elle avance au nom du peuple, quitte à broyer ceux qui refusent de suivre.</p>
+        <div class="fc-stats">
+          <span><strong>Rôle :</strong> mobilisation, propagande, défense de masse</span>
+          <span><strong>Forces :</strong> nombre, industrie, endurance</span>
+          <span><strong>Faiblesse :</strong> rigidité idéologique</span>
+        </div>
       </div>
     </div>
 
-    <div style="background:var(--dark2);border:1px solid rgba(148,201,255,0.3);border-radius:var(--radius);padding:26px;position:relative;overflow:hidden;">
-      <div style="font-family:var(--mono);font-size:10px;color:#94c9ff;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;background:rgba(148,201,255,0.06);border:1px solid rgba(148,201,255,0.2);display:inline-block;padding:5px 10px;border-radius:3px;">Fréquence : SPARTA-9</div>
-      <h3 style="font-family:var(--head);font-size:26px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Ordre Spartiate</h3>
-      <p style="font-family:var(--mono);font-size:11px;color:#94c9ff;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">Protéger. Explorer. Survivre.</p>
-      <p style="font-size:14px;color:var(--muted2);line-height:1.75;margin-bottom:16px;">Les Spartiates sont des combattants d'élite spécialisés dans les expéditions, les menaces inconnues et la protection du métro face aux dangers de la surface et des tunnels.</p>
-      <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:14px;display:grid;gap:5px;">
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#94c9ff;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Rôle :</span> opérations spéciales, exploration, sécurité</span>
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#94c9ff;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Forces :</span> entraînement, équipement, sang-froid</span>
-        <span style="font-size:13px;color:var(--muted);"><span style="color:#94c9ff;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Faiblesse :</span> effectifs limités</span>
+    <!-- ORDRE SPARTIATE -->
+    <div class="fc" style="background-image:linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.88)),url('ranger.jpg');--fc-color:#94c9ff;--fc-line:rgba(148,201,255,0.4);">
+      <div class="fc-body">
+        <div class="fc-freq">Fréquence : SPARTA-9</div>
+        <h3>Ordre Spartiate</h3>
+        <p class="fc-slogan">Protéger. Explorer. Survivre.</p>
+        <p>Les Spartiates sont des combattants d'élite spécialisés dans les expéditions, les menaces inconnues et la protection du métro face aux dangers de la surface et des tunnels.</p>
+        <div class="fc-stats">
+          <span><strong>Rôle :</strong> opérations spéciales, exploration, sécurité</span>
+          <span><strong>Forces :</strong> entraînement, équipement, sang-froid</span>
+          <span><strong>Faiblesse :</strong> effectifs limités</span>
+        </div>
       </div>
     </div>
 
