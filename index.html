@@ -624,6 +624,112 @@ footer {
 .footer-copy { width: 100%; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 1px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
 
 /* ============================
+   LOGO HERO — sans cadre
+============================ */
+.hero-logo-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.hero-logo-img {
+  width: 108px; height: 108px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+  filter: drop-shadow(0 0 18px rgba(0,255,136,0.35)) drop-shadow(0 0 40px rgba(0,255,136,0.15));
+  animation: logoFloat 4s ease-in-out infinite;
+}
+.hero-logo-halo {
+  position: absolute;
+  bottom: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 14px;
+  background: radial-gradient(ellipse at center, rgba(0,255,136,0.35) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: haloBreath 4s ease-in-out infinite;
+  filter: blur(4px);
+}
+@keyframes logoFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes haloBreath {
+  0%,100% { opacity:0.7; transform:translateX(-50%) scaleX(1); }
+  50% { opacity:1; transform:translateX(-50%) scaleX(1.15); }
+}
+
+/* ============================
+   TUNNEL SVG BACKGROUND
+============================ */
+.tunnel-bg {
+  position: fixed; inset: 0; z-index: -2;
+  pointer-events: none; overflow: hidden;
+}
+.tunnel-bg svg {
+  width: 100%; height: 100%;
+  opacity: 0.07;
+}
+
+/* ============================
+   HUD CORNERS
+============================ */
+.hud-corner {
+  position: fixed; z-index: 50; pointer-events: none;
+  font-family: var(--mono); font-size: 10px; color: rgba(0,255,136,0.35);
+  letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.6;
+}
+.hud-tl { top: 80px; left: 18px; border-top: 1px solid rgba(0,255,136,0.25); border-left: 1px solid rgba(0,255,136,0.25); padding: 5px 8px; }
+.hud-tr { top: 80px; right: 18px; border-top: 1px solid rgba(0,255,136,0.25); border-right: 1px solid rgba(0,255,136,0.25); padding: 5px 8px; text-align: right; }
+.hud-bl { bottom: 18px; left: 18px; border-bottom: 1px solid rgba(0,255,136,0.25); border-left: 1px solid rgba(0,255,136,0.25); padding: 5px 8px; }
+.hud-br { bottom: 18px; right: 18px; border-bottom: 1px solid rgba(0,255,136,0.25); border-right: 1px solid rgba(0,255,136,0.25); padding: 5px 8px; text-align: right; }
+@media (max-width: 768px) { .hud-corner { display: none; } }
+
+/* ============================
+   PARTICULES CENDRES
+============================ */
+.ash-layer {
+  position: fixed; inset: 0; z-index: 1;
+  pointer-events: none; overflow: hidden;
+}
+.ash {
+  position: absolute; top: -10px;
+  width: 1px; height: 8px;
+  background: rgba(180,220,180,0.18);
+  border-radius: 50%;
+  animation: ashFall linear infinite;
+}
+@keyframes ashFall {
+  0% { transform: translate3d(0,-10px,0) rotate(0deg); opacity:0; }
+  8% { opacity:1; }
+  92% { opacity:0.15; }
+  100% { transform: translate3d(var(--drift),105vh,0) rotate(280deg); opacity:0; }
+}
+
+/* ============================
+   CRT FLICKER sur textes verts
+============================ */
+.hero h1 span,
+.brand-text span {
+  animation: crtFlicker 8s ease-in-out infinite;
+}
+@keyframes crtFlicker {
+  0%,96%,100% { opacity:1; }
+  97% { opacity:0.85; }
+  97.5% { opacity:1; }
+  98.2% { opacity:0.6; }
+  98.5% { opacity:1; }
+}
+
+/* ============================
+   VIGNETTE ÉCRAN
+============================ */
+.vignette {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%);
+}
+
+/* ============================
    ANIMATIONS
 ============================ */
 @keyframes blink {
@@ -656,6 +762,48 @@ footer {
 </style>
 </head>
 <body>
+
+<!-- TUNNEL BG -->
+<div class="tunnel-bg" aria-hidden="true">
+  <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#00ff88" fill="none">
+      <ellipse cx="600" cy="400" rx="580" ry="385" stroke-width="1"/>
+      <ellipse cx="600" cy="400" rx="500" ry="330" stroke-width="0.9"/>
+      <ellipse cx="600" cy="400" rx="420" ry="278" stroke-width="0.8"/>
+      <ellipse cx="600" cy="400" rx="340" ry="225" stroke-width="0.7"/>
+      <ellipse cx="600" cy="400" rx="260" ry="172" stroke-width="0.6"/>
+      <ellipse cx="600" cy="400" rx="180" ry="119" stroke-width="0.5"/>
+      <ellipse cx="600" cy="400" rx="100" ry="66" stroke-width="0.4"/>
+      <ellipse cx="600" cy="400" rx="40" ry="26" stroke-width="0.3"/>
+      <!-- rails -->
+      <line x1="0" y1="580" x2="555" y2="420" stroke-width="0.6"/>
+      <line x1="1200" y1="580" x2="645" y2="420" stroke-width="0.6"/>
+      <line x1="0" y1="600" x2="548" y2="430" stroke-width="0.4"/>
+      <line x1="1200" y1="600" x2="652" y2="430" stroke-width="0.4"/>
+      <!-- vertical beams -->
+      <line x1="80" y1="0" x2="588" y2="374" stroke-width="0.3" opacity="0.5"/>
+      <line x1="1120" y1="0" x2="612" y2="374" stroke-width="0.3" opacity="0.5"/>
+      <line x1="240" y1="0" x2="591" y2="355" stroke-width="0.3" opacity="0.4"/>
+      <line x1="960" y1="0" x2="609" y2="355" stroke-width="0.3" opacity="0.4"/>
+      <line x1="420" y1="0" x2="595" y2="345" stroke-width="0.3" opacity="0.3"/>
+      <line x1="780" y1="0" x2="605" y2="345" stroke-width="0.3" opacity="0.3"/>
+    </g>
+    <!-- centre glow -->
+    <ellipse cx="600" cy="400" rx="60" ry="40" fill="#00ff88" opacity="0.025"/>
+  </svg>
+</div>
+
+<!-- VIGNETTE -->
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- HUD CORNERS -->
+<div class="hud-corner hud-tl" aria-hidden="true">METRO-LINK<br>FILTER OK</div>
+<div class="hud-corner hud-tr" aria-hidden="true">ACTUAL RP<br>SIGNAL STABLE</div>
+<div class="hud-corner hud-bl" aria-hidden="true">SURFACE LOCKED<br>RAD: 0.43 µSv/h</div>
+<div class="hud-corner hud-br" aria-hidden="true">AMMO: LOW<br>SECTOR: METRO</div>
+
+<!-- PARTICULES CENDRES -->
+<div class="ash-layer" id="ashLayer" aria-hidden="true"></div>
 
 <!-- RADIO STRIP -->
 <div class="radio-strip">
@@ -706,8 +854,9 @@ footer {
 
   <!-- HERO CENTRÉ -->
   <div class="hero">
-    <div style="margin-bottom:16px;">
-      <img src="https://i.imgur.com/t2EdsYy.png" alt="Actual RP" style="width:100px;height:100px;border-radius:20px;object-fit:contain;margin:0 auto;border:1px solid rgba(0,255,136,0.4);background:rgba(0,0,0,0.5);box-shadow:0 0 40px rgba(0,255,136,0.14);">
+    <div class="hero-logo-wrap">
+      <img src="https://i.imgur.com/t2EdsYy.png" alt="Actual RP" class="hero-logo-img">
+      <div class="hero-logo-halo"></div>
     </div>
     <div class="hero-online">
       <span class="dot-green"></span>
@@ -1287,6 +1436,26 @@ function switchTab(el, id) {
 document.getElementById('steamModal').addEventListener('click', function(e) {
   if (e.target === this) this.classList.remove('open');
 });
+
+/* ============================
+   PARTICULES CENDRES
+============================ */
+(function() {
+  const layer = document.getElementById('ashLayer');
+  if (!layer) return;
+  const count = 28;
+  for (let i = 0; i < count; i++) {
+    const ash = document.createElement('div');
+    ash.className = 'ash';
+    const left = Math.random() * 100;
+    const dur = 14 + Math.random() * 22;
+    const delay = -(Math.random() * 30);
+    const drift = ((Math.random() * 160) - 80).toFixed(0);
+    const size = 0.8 + Math.random() * 1.4;
+    ash.style.cssText = `left:${left}vw;animation-duration:${dur}s;animation-delay:${delay}s;--drift:${drift}px;width:${size}px;height:${(size*5).toFixed(0)}px;opacity:${(0.1+Math.random()*0.22).toFixed(2)};`;
+    layer.appendChild(ash);
+  }
+})();
 
 /* ============================
    RADIO MESSAGES
