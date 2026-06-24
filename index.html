@@ -97,10 +97,9 @@ h1,h2,h3,h4 { margin: 0; }
   margin-right: 16px; flex-shrink: 0; cursor: pointer;
 }
 .brand-logo {
-  width: 46px; height: 46px; border-radius: 10px;
+  width: 46px; height: 46px;
   object-fit: contain; flex-shrink: 0;
-  background: rgba(0,0,0,0.5);
-  border: 1px solid var(--border2);
+  filter: drop-shadow(0 0 8px rgba(0,255,136,0.25));
 }
 .brand-text small {
   display: block; font-family: var(--mono);
@@ -876,15 +875,6 @@ footer {
       <span class="sep">•</span>
       <span id="shopCount">0</span> achats boutique
     </p>
-  </div>
-
-  <!-- PARRAINAGE BANNER -->
-  <div class="parrainage-banner">
-    <div>
-      <div class="parrainage-text"><strong>Programme de parrainage</strong> — Invite tes amis et gagne du crédit boutique à chaque inscription.</div>
-    </div>
-    <span class="parrainage-tag">+0,50 € / invitation</span>
-    <span class="btn btn-secondary" onclick="document.getElementById('steamModal').classList.add('open')" style="cursor:pointer;">S'inscrire →</span>
   </div>
 
   <!-- STATS BAR -->
